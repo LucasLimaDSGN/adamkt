@@ -16,6 +16,11 @@
   </head>
   <body>
     <header class="header">
+      <div class="drop-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <div class="logo">
         <img class="logo-header" src="./vectors/logo.svg" alt="Logo" />
       </div>
@@ -25,12 +30,18 @@
         <a href="#" class="contacts">CONTACTS</a>
       </nav>
       <div class="last-items-header">
-        <img class="search-icon" src="./vectors/search-icon.svg" alt="Search" />
-        <div class="header-button">
           <button class="button-header">ONLINE CONSULTATION</button>
-        </div>
       </div>
     </header>
+
+    <nav class="mobile-nav">
+      <a href="#" class="home">HOME</a>
+      <a href="#" class="about-us">ABOUT US</a>
+      <a href="#" class="contacts">CONTACTS</a>
+      <div class="header-button">
+        <button class="button-header">ONLINE CONSULTATION</button>
+      </div>
+    </nav>
 
     <main>
       <section class="banner">
@@ -45,6 +56,7 @@
             alt="opening computer"
           />
         </div>
+        <div class="fade-out"></div>
       </section>
 
       <section class="about-us">
@@ -55,14 +67,14 @@
         </div>
         <article class="text">
           <p class="about-us-text">
-            We’re a company with a vision of conquering new frontiers, driven by
+            We're a company with a vision of conquering new frontiers, driven by
             a long-term mission: delivering the sharpest marketing strategies,
             the latest technologies, the most sophisticated designs, and the
             smartest automations to our clients and partners.<br />
-            We’re here to push businesses beyond their comfort zones, proving
+            We're here to push businesses beyond their comfort zones, proving
             that innovation can reshape industries and lead society into a whole
             new era.<br />
-            It doesn’t matter if it’s a global corporation or a family-run
+            It doesn't matter if it's a global corporation or a family-run
             business—our focus on high performance stays the same, ensuring
             top-tier results every step of the way.
           </p>
@@ -73,9 +85,17 @@
         </div>
         <div class="grid-2columns">
           <div class="partner-images">
-            <img class="partner1" src="./images/partner1.png" alt="partner-image1" />
-            <img class="partner2" src="./images/partner2.png" alt="partner-image2" />
-            <img class="partner3" src="./images/partner3.png" alt="partner-image3" />
+            <div class="partner-slide partner1">
+              <img src="./images/partner1.png" alt="Partner 1">
+            </div>
+            <div class="partner-slide partner2">
+              <img src="./images/partner2.png" alt="Partner 2">
+            </div>
+            <div class="partner-slide partner3">
+              <img src="./images/partner3.png" alt="Partner 3">
+            </div>
+            <button class="slider-control prev" aria-label="Previous slide">←</button>
+            <button class="slider-control next" aria-label="Next slide">→</button>
           </div>
           <article class="our-puporse-text">
             <h2 class="partner-name">ADA PARKER</h2>
@@ -128,7 +148,7 @@
           <h3 class="sub-title">OVERVIEW</h3>
           <div class="cover-up"></div>
         </div>
-        <div class="grid-2columns">
+        <div class="grid-2columns projects-grid">
           <div class="project-about">
             <h3 class="project-number">1</h3>
             <div class="project-details">
@@ -137,7 +157,6 @@
               A company that grew rapidly and established itself in the Triangle within just a few months,
               always staying true to the values of its owners.</P>
             </div>
-              <div class="ending-line"></div>
           </div>
           <div class="image-project">
             <div class="project-infos">
@@ -150,29 +169,30 @@
               src="./images/project1.png"
               alt="project-image1" />
           </div>
-        </container>
-        <container class="grid-2columns">
+        </div>
+        <div class="grid-2columns projects-grid">
           <div class="project-about">
             <h3 class="project-number">2</h3>
-            <h3>PARKER&CO HVAC</h3>
-            <P>Parker & Co. was our first client and remains one of our most special projects.
-              A company that grew rapidly and established itself in the Triangle within just a few months,
-              always staying true to the values of its owners.</P>
-              <div class="ending-line"></div>
+            <div class="project-details">
+            <h3> BROWNUTS</h3>
+            <P>Brownuts is an online pâtisserie born in Brazil, in 2020, from the oven of an architect who traded blueprints
+               for baking sheets. What started as a way to bring comfort and joy to her family during uncertain times quickly
+                became a passion-fueled business.</P>
+            </div>
           </div>
           <div class="image-project">
             <div class="project-infos">
-            <span class="city">City: Clayton - NC</span>
-            <span class="name">Name: Parker&Co HVAC</span>
-            <span class="scope">Scope: Fullstack</span>
+            <span class="city">City: Campinas - SP</span>
+            <span class="name">Name: Brownuts Patisserie</span>
+            <span class="scope">Scope: Web Design e-commerce</span>
             </div>
             <img
               class="image-project1"
-              src="./images/project1.png"
-              alt="project-image1" />
+              src="./images/project2.png"
+              alt="project-image2" />
           </div>
         </div>
-        <button class="see-all">SEE ALL PROJECTS</button>
+        <button class="see-all">ALL PROJECTS</button>
       </section>
 
       <section class="contact">
@@ -263,5 +283,6 @@
         </small>
       </div>
     </footer>
+    <script src="./scripts.js"></script>
   </body>
 </html>
