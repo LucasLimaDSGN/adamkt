@@ -19,12 +19,13 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
-  background-color: #faf9f9;
+  background-color: rgb(255, 255, 255);
   color: #333;
   overflow-x: hidden;
 }
@@ -34,15 +35,6 @@ a {
   text-decoration: none;
 }
 
-
-
-button {
-  cursor: pointer;
-  background-color: #000;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-}
 
 /* Container para seções principais */
 .container {
@@ -57,17 +49,45 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(44, 44, 44, 0.04);
+  background-color: rgba(44, 44, 44, 0);
   color: #fff;
   position: fixed;
   width: 100%;
   z-index: 1000;
   transition: background-color 0.3s ease;
+  top: 0;
 }
 
 .header.scrolled, .header:hover {
-  background-color: rgba(44, 44, 44, 0.9);
+  background-color: rgba(0, 0, 0, 0.944);
 }
+
+.header.scrolled a,
+.header:hover a {
+  color: #fdfdfd;
+}
+
+.button-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 1px solid #000;
+  background: transparent;
+  color: #000;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.header.scrolled button,
+.header:hover button {
+  border: 1px solid white;
+  color: white;
+}
+
 
 .header nav.list-header {
   display: flex;
@@ -80,7 +100,7 @@ button {
 .header nav a {
   margin: 0 4rem;
   font-weight: 300;
-  color: #fff;
+  color: #0a0707;
   font-size: 1.1rem;
 }
 
@@ -91,6 +111,12 @@ button {
   transition: all 0.3s ease;
 }
 
+.header.scrolled .logo path,
+.header:hover .logo path {
+  fill: white;
+}
+
+
 .logo img {
   width: 100%;
   height: auto;
@@ -100,25 +126,6 @@ button {
 .last-items-header {
   display: flex;
   gap: 40px;
-}
-
-.button-header {
-  display: flex;
-  border: 1px solid #faf9f9;
-  background: transparent;
-  color: #faf9f9;
-  font-weight: 300;
-  border-radius: 0px;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.button-header:hover {
-  background-color: #faf9f9;
-  color: #2c2c2c;
 }
 
 /* Banner */
@@ -142,23 +149,51 @@ button {
   z-index: 2;
 }
 
+.call-to-action {
+  position: absolute;
+  top: 65%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+  z-index: 2;
+}
+
+.call-to-action h2 {
+  font-size: 2.8rem;
+  text-align: right;
+  font-weight: 400;
+  color: #0a0808;
+  margin-bottom: 1rem;
+  line-height: 0.9;
+}
+
+.call-to-action-text {
+  text-align: right;
+  text-decoration: underline 1px #0a0808;
+  font-weight: 300;
+  color: #0a0808;
+}
+
+
 .logo-complement {
-  font-size: 8rem;
+  font-size: 6rem;
   font-family: "Mak", sans-serif;
   font-weight: bold;
   line-height: 1.1;
   left: -6%;
-  color: #fff;
+  color: #0a0808;
   position: relative;
   margin-top: 60px;
 }
 
 .vision {
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 2rem;
   line-height: 1.1;
-  color: #fff;
+  color: #000000;
   position: relative;
   margin-top: 1px;
   margin-left: 2rem;
@@ -173,26 +208,45 @@ button {
   object-fit: cover;
 }
 
-.fade-out {
-  position: relative;
-  background: rgb(250, 249, 249);
-  max-height: 80px;
-  margin-top: auto;
+.carouselbar {
+  overflow: hidden;
   width: 100%;
-  z-index: 2;
+  height: 80px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  transform: skewY(-3deg);
+  z-index: 3;
+  position: relative;
+  margin-top: -40px;
 }
 
-.fade-out::after {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 0;
-  width: 100%;
-  height: 30px;
-  background: linear-gradient(to top, rgb(250, 249, 249), rgba(250, 249, 249, 90%), rgba(250, 249, 249, 60%), rgba(250, 249, 249, 0) );
-  pointer-events: none;
-  z-index: 2;
+.textoanimado {
+  display: inline-block;
+  white-space: nowrap;
+  animation: carrossel 30s linear infinite;
+  font-size: 2rem;
+  font-weight: bold;
+  will-change: transform;
 }
+
+.textoanimado span {
+  display: inline-block;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+@keyframes carrossel {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
 
 section {
   margin-top: 7rem;
@@ -202,7 +256,7 @@ section {
 
 .text {
   padding: 0rem 7rem 4rem 8rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .subtitle-design {
@@ -219,7 +273,7 @@ section {
 
 .cover-up {
   position: relative;
-  background: #faf9f9;
+  background: #fff;
   min-height: 40px;
 }
 
@@ -259,7 +313,8 @@ section {
   position: relative;
   flex: 1 1 30%;
   max-width: 30%;
-  border: 4px solid #000;
+  border: 0.5px solid #000;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -276,7 +331,7 @@ section {
 
 .partner1 {
   order: 3;
-  left: -5%;
+  left: 5%;
   z-index: 3;
   transform: translateY(30px);
 }
@@ -298,10 +353,50 @@ section {
   display: none;
 }
 
-.partner-name{
+.faded::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 24, 24, 0.849); /* fade escuro */
+  z-index: 4;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.partner-slide {
+  position: relative;
+  cursor: pointer;
+  transition: z-index 0.3s ease;
+}
+
+.text-apresentation1,
+.text-apresentation2,
+.text-apresentation3 {
+  display: none;
+}
+
+
+.partner-name1{
   font-weight: 600;
   font-size: 1.8rem;
 }
+
+.partner-name2{
+  display: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.partner-name3{
+  display: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+
 
 
 .our-purpose-text {
@@ -310,9 +405,23 @@ section {
   align-items: center;
 }
 
-.text-apresentation {
+.text-apresentation1 {
   margin-top: 20px;
-  font-weight: 500;
+  font-weight: 400;
+  
+}
+
+.text-apresentation2 {
+  display: none;
+  margin-top: 20px;
+  font-weight: 400;
+  
+}
+
+.text-apresentation3 {
+  display: none;
+  margin-top: 20px;
+  font-weight: 400;
   
 }
 
@@ -743,6 +852,7 @@ footer address {
 .sub {
   font-size: 1rem;
   background: none;
+  padding: 0.5rem 1rem;
   font-weight: 300;
   color: #e7e7e7;
   border-radius: 0;
@@ -759,6 +869,7 @@ footer address {
   width: 94%;
   display: flex;
   justify-self: center;
+  justify-content: space-between;
   padding-top: 8px;
   border-top: #f3f2f2 1px solid;
 }
@@ -846,10 +957,70 @@ footer address {
   font-size: 1.2rem;
 }
 
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.back-to-top {
+  align-self: flex-end;
+}
+
+.back-to-top-button {
+  background: none;
+  padding: 0.2rem 0.2rem;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-color: #e7e7e7;
+  color: #e7e7e7;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.back-to-top-button:hover {
+  color: #2c2c2c;
+  background-color: #fff;
+}
+@media screen and (min-width: 1600px) {
+  
+  .logo-complement {
+    font-size: 8rem;
+  }
+
+}
+
 @media screen and (min-width: 1200px) {
   .last-items-header {
     display: flex;
     margin-left: auto;
+  }
+
+  .call-to-action h2 {
+    font-size: 2.5rem;
+  }
+
+  .call-to-action-text {
+    font-size: 1rem;
+  }
+
+  .partner-images {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    flex-direction: row;
+    padding: 0;
+    margin-left: 0;
+    min-width: 400px;
+    margin-top: 0rem;
+    border-radius: 0px 30px 0px 30px;
+    }
+
+  .partner1, .partner2, .partner3 {
+    border-radius: 10px;
+    border: 1px solid #000;
   }
 
 }
@@ -877,9 +1048,10 @@ footer address {
   }
 
   .logo {
-    max-height: 60px;
-    max-width: 60px;
+    max-height: 80px;
+    max-width: 80px;
     position: absolute;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -895,6 +1067,15 @@ footer address {
 
   .text {
     padding: 0rem 4rem 4rem 4rem;
+  }
+
+  
+  .call-to-action h2 {
+    font-size: 2.2rem;
+  }
+  
+  .call-to-action-text {
+    font-size: 0.9rem;
   }
 
   .grid-2columns {
@@ -921,6 +1102,8 @@ footer address {
     flex-direction: row;
     padding: 0;
     min-height: 430px;
+    margin-left: 0;
+    min-width: 400px;
     border-radius: 0px 30px 0px 30px;
   }
   .partner1 {
@@ -996,6 +1179,15 @@ footer address {
     margin: 0 1rem;
   }
 
+  .logo {
+    max-height: 60px;
+    max-width: 60px;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .logo-complement {
     margin-top: 40px;
   }
@@ -1011,6 +1203,23 @@ footer address {
 
   .banner {
     min-height: 500px;
+  }
+
+  .partner-images {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    flex-direction: row;
+    padding: 0;
+    margin-top: 0rem;
+    min-height: 620px;
+    border-radius: 0px 30px 0px 30px;
+    }
+
+  .partner1, .partner2, .partner3 {
+    border-radius: 10px;
+    border: 1px solid #000;
   }
 
   .logo-complement {
@@ -1065,6 +1274,7 @@ footer address {
     max-height: 40px;
     max-width: 40px;
     position: absolute;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -1077,13 +1287,32 @@ footer address {
     font-size: 1.2rem;
   }
 
+  .call-to-action {
+    top: 60%;
+  }
+
+  .carouselbar {
+    height: 60px;
+  }
+  .partner-images {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    flex-direction: row;
+    padding: 0;
+    min-height: 480px;
+    border-radius: 0px 30px 0px 30px;
+    }
+
   .partner1, .partner2, .partner3 {
-    border: none;
+    border-radius: 10px;
+    border: 1px solid #000;
   }
 
   .partner-slide img {
     object-fit: cover;
-    width: 60%;
+    width: 100%;
   }
 
   .text {
@@ -1165,16 +1394,34 @@ footer address {
   }
 
   .logo-complement {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .vision {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-left: 1rem;
+  }
+
+  .call-to-action {
+    top: 60%;
+  }
+
+  .call-to-action h2 {
+    font-size: 1.6rem;
   }
 
   .text {
     padding: 0rem 2rem 2rem 2rem;
+  }
+
+  .carouselbar {
+    padding-top: 6px;
+    margin-top: -16px;
+    height: 32px;
+  }
+
+  .textoanimado {
+    font-size: 1rem;
   }
 
   .grid-2columns {
@@ -1222,12 +1469,35 @@ footer address {
     .group-3 input {
       width: 100%;
     }
+    .cl-2 {
+      display: none;
+    }
+    .sub{
+      padding-bottom: 0.65rem;
+    }
+    .footer-contacts {
+      margin-top: 2rem;
+    }
 }
 
 @media screen and (max-width: 500px) {
   .sub-title {
     font-size: 24px;
     top: -60%;
+  }
+  .faded::after{
+    display: none;
+  }
+
+ 
+  .partner2 {
+    transform: translateY(60px);
+    zoom: 4;
+  }
+  
+  .partner3 {
+    transform: translateY(40px);
+    zoom: 4;
   }
 
   .slider-control {
